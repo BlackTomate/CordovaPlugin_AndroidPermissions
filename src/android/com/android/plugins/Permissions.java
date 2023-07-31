@@ -119,11 +119,13 @@ public class Permissions extends CordovaPlugin {
             addProperty(returnObj, KEY_ERROR, ACTION_REQUEST_PERMISSION);
             addProperty(returnObj, KEY_MESSAGE, "At least one permission.");
             callbackContext.error(returnObj);
-        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        } 
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             JSONObject returnObj = new JSONObject();
             addProperty(returnObj, KEY_RESULT_PERMISSION, true);
             callbackContext.success(returnObj);
-        } else if (hasAllPermissions(permissions)) {
+        } 
+        else if (hasAllPermissions(permissions)) {
             JSONObject returnObj = new JSONObject();
             addProperty(returnObj, KEY_RESULT_PERMISSION, true);
             callbackContext.success(returnObj);
