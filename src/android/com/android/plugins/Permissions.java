@@ -14,9 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by JasonYang on 2016/3/11.
- */
 public class Permissions extends CordovaPlugin {
 
     private static String TAG = "Permissions";
@@ -75,7 +72,8 @@ public class Permissions extends CordovaPlugin {
             boolean hasAllPermissions = hasAllPermissions(permissions);
             addProperty(returnObj, KEY_RESULT_PERMISSION, hasAllPermissions);
             permissionsCallback.success(returnObj);
-        } else {
+        } 
+        else {
             addProperty(returnObj, KEY_ERROR, ACTION_REQUEST_PERMISSION);
             addProperty(returnObj, KEY_MESSAGE, "Unknown error.");
             permissionsCallback.error(returnObj);
