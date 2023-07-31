@@ -129,7 +129,8 @@ public class Permissions extends CordovaPlugin {
             JSONObject returnObj = new JSONObject();
             addProperty(returnObj, KEY_RESULT_PERMISSION, true);
             callbackContext.success(returnObj);
-        } else {
+        } 
+        else {
             permissionsCallback = callbackContext;
             String[] permissionArray = getPermissions(permissions);
             if (permissionArray.length == 1 && "android.permission.SYSTEM_ALERT_WINDOW".equals(permissionArray[0])) {
@@ -137,11 +138,9 @@ public class Permissions extends CordovaPlugin {
 
                 Activity activity = this.cordova.getActivity();
                 Context context = this.cordova.getActivity().getApplicationContext();
-
-                // SYSTEM_ALERT_WINDOW
-                // https://stackoverflow.com/questions/40355344/how-to-programmatically-grant-the-draw-over-other-apps-permission-in-android
-                // https://www.codeproject.com/Tips/1056871/Android-Marshmallow-Overlay-Permission
-                if (!Settings.canDrawOverlays(context)) {
+                
+                if (!Settings.canDrawOverlays(context)) 
+                {
                     Log.w(TAG, "Request permission SYSTEM_ALERT_WINDOW start intent because canDrawOverlays=false");
                     Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                             Uri.parse("package:" + activity.getPackageName()));
@@ -155,8 +154,10 @@ public class Permissions extends CordovaPlugin {
 
     private String[] getPermissions(JSONArray permissions) {
         String[] stringArray = new String[permissions.length()];
-        for (int i = 0; i < permissions.length(); i++) {
-            try {
+        for (int i = 0; i < permissions.length(); i++) 
+        {
+            try 
+                
                 stringArray[i] = permissions.getString(i);
             } catch (JSONException ignored) {
                 //Believe exception only occurs when adding duplicate keys, so just ignore it
@@ -181,7 +182,8 @@ public class Permissions extends CordovaPlugin {
     }
 
     private void addProperty(JSONObject obj, String key, Object value) {
-        try {
+        try 
+            {
             if (value == null) {
                 obj.put(key, JSONObject.NULL);
             } else {
