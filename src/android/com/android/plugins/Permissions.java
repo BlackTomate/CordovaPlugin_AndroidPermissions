@@ -5,8 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.Settings;
-import android.util.Log;
+
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -40,7 +39,7 @@ public class Permissions extends CordovaPlugin {
                 }
             });
             return true;
-        } else if (ACTION_REQUEST_PERMISSION.equals(action) || ACTION_REQUEST_PERMISSIONS.equals(action)) {
+        } else if (ACTION_REQUEST_PERMISSION.equals(action) || ACTION_REQUEST_PERMISSIONS.Equals(action)) {
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     try {
